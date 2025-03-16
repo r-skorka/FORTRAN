@@ -202,3 +202,127 @@ Program [`p9`](./Zadania/p09/p9.f95) oblicza pierwiastek sześcienny z liczby po
     - `cube_root = EXP(log_x/3.0)`: Obliczenie pierwiastka sześciennego z `x` przez podzielenie logarytmu przez 3 i podniesienie liczby `e` do tej potęgi.
 
 <br><br>
+
+## Program 10
+Program [`p10`](./Zadania/p10/p10.f95) demonstruje użycie pętli `DO` z różnymi wartościami początkowymi, końcowymi i przyrostami. W programie znajduje się kilka przykładów, które ilustrują, jak można kontrolować iterację w pętli `DO`.
+
+### Szczegóły działania
+1. **Deklaracje zmiennych**:
+    - `INTEGER :: i, j, p, q, r, x, n, m`: Deklaracja zmiennych całkowitych używanych w pętlach `DO`.
+
+2. **Pierwsza pętla `DO`**:
+    - `PRINT *, "start=1, stop=10, increment=1 (domyslny)"`: Wyświetlenie informacji o zakresie pętli.
+    - `DO i = 1, 10`: Iteracja zmiennej `i` od 1 do 10 z domyślnym przyrostem 1.
+    - `PRINT *, i`: Wyświetlenie wartości `i` w każdej iteracji.
+
+3. **Druga pętla `DO`**:
+    - `PRINT *, "start=20, stop=50, increment=5"`: Wyświetlenie informacji o zakresie pętli.
+    - `DO j = 20, 50, 5`: Iteracja zmiennej `j` od 20 do 50 z przyrostem 5.
+    - `PRINT *, j`: Wyświetlenie wartości `j` w każdej iteracji.
+
+4. **Trzecia pętla `DO`**:
+    - `PRINT *, "start=7, stop=19, increment=4"`: Wyświetlenie informacji o zakresie pętli.
+    - `DO p = 7, 19, 4`: Iteracja zmiennej `p` od 7 do 19 z przyrostem 4.
+    - `PRINT *, p`: Wyświetlenie wartości `p` w każdej iteracji.
+
+5. **Czwarta pętla `DO`**:
+    - `PRINT *, "start=4, stop=5, increment=6"`: Wyświetlenie informacji o zakresie pętli.
+    - `DO q = 4, 5, 6`: Iteracja zmiennej `q` od 4 do 5 z przyrostem 6 (wykona się tylko raz, ponieważ start jest większy od stopu).
+    - `PRINT *, q`: Wyświetlenie wartości `q` w jedynej iteracji.
+
+6. **Piąta pętla `DO`**:
+    - `PRINT *, "start=20, stop=-20, increment=-6"`: Wyświetlenie informacji o zakresie pętli.
+    - `DO m = 20, -20, -6`: Iteracja zmiennej `m` od 20 do -20 z przyrostem -6.
+    - `PRINT *, m`: Wyświetlenie wartości `m` w każdej iteracji.
+
+7. **Zakończenie programu**:
+    - `STOP`: Zatrzymanie wykonania programu.
+    - `END PROGRAM p10`: Oznaczenie końca programu.
+
+<br><br>
+
+## Program 11
+Program [`p11`](./Zadania/p11/p11.f95) ilustruje działanie nieskończonej pętli `DO` z warunkiem wyjścia. Program wykonuje operację mnożenia zmiennej przez samą siebie, dopóki jej wartość nie będzie mniejsza niż określona stała epsilon. W trakcie obliczeń program sumuje wartości tej zmiennej.
+
+### Szczegóły działania
+1. **Deklaracje zmiennych**:
+    - `REAL :: suma, a_j`: Deklaracja zmiennych rzeczywistych `suma` i `a_j`.
+    - `REAL, PARAMETER :: epsilon = 1.0e-40`: Deklaracja stałej rzeczywistej `epsilon` z wartością `1.0e-40`.
+
+2. **Inicjalizacja zmiennych**:
+    - `a_j = .99999`: Inicjalizacja zmiennej `a_j` wartością `0.99999`.
+    - `suma = 0.0`: Inicjalizacja zmiennej `suma` wartością `0.0`.
+
+3. **Wyświetlenie wartości epsilon**:
+    - `PRINT *, epsilon`: Wyświetlenie wartości stałej `epsilon`.
+
+4. **Pętla `DO`**:
+    - `DO`: Początek nieskończonej pętli `DO`.
+        - `a_j = a_j * a_j`: Mnożenie zmiennej `a_j` przez samą siebie.
+        - `suma = suma + a_j`: Dodawanie wartości `a_j` do zmiennej `suma`.
+        - `PRINT *, a_j`: Wyświetlenie aktualnej wartości `a_j`.
+        - `IF (a_j < epsilon) EXIT`: Warunek wyjścia z pętli, jeśli `a_j` jest mniejsze niż `epsilon`.
+
+5. **Wyświetlenie sumy**:
+    - `PRINT *, "suma = ", suma`: Wyświetlenie sumy wszystkich wartości `a_j` dodanych do zmiennej `suma`.
+
+6. **Zakończenie programu**:
+    - `STOP`: Zatrzymanie wykonania programu.
+    - `END PROGRAM p11`: Oznaczenie końca programu.
+
+<br><br>
+
+## Program 12
+Program [`p12`](./Zadania/p12/p12.f95) oblicza sumę kolejnych liczb całkowitych od 1 do pewnej wartości granicznej. Program wykorzystuje pętlę `DO` do iteracji przez liczby całkowite, a także wykorzystuje instrukcje sterujące `exit` i `cycle` do kontroli przepływu pętli.
+
+### Szczegóły działania
+1. **Deklaracje zmiennych**:
+    - `INTEGER, PARAMETER :: range = SELECTED_INT_KIND(15)`: Deklaracja stałej `range` jako rodzaju liczby całkowitej o wybranej precyzji (używając funkcji `SELECTED_INT_KIND`).
+
+2. **Inicjalizacja zmiennych**:
+    - `INTEGER(kind = range) :: suma, n`: Inicjalizacja zmiennych `suma` i `n` jako liczby całkowitej o wybranej precyzji.
+
+3. **Wyświetlenie informacji o precyzji**:
+    - `PRINT *, "range = ", range`: Wyświetlenie informacji o precyzji liczby całkowitej.
+
+4. **Pętla `DO`**:
+    - `DO`: Początek nieskończonej pętli `DO`.
+        - `n = n + 1`: Inkrementacja zmiennej `n`.
+        - `IF (n > 1234567890) EXIT`: Warunek wyjścia z pętli, jeśli `n` przekroczy wartość `1234567890`.
+        - `IF (n == 55) CYCLE`: Przeskok do kolejnej iteracji, jeśli `n` równa się 55.
+        - `IF (n >= 20 .AND. n <= 30) CYCLE`: Przeskok do kolejnej iteracji, jeśli `n` mieści się w zakresie od 20 do 30 (włącznie).
+        - `suma = suma + n`: Dodanie wartości `n` do sumy.
+
+5. **Wyświetlenie sumy**:
+    - `PRINT *, "suma: ", suma`: Wyświetlenie obliczonej sumy liczb.
+
+6. **Zakończenie programu**:
+    - `END PROGRAM p12`: Oznaczenie końca programu.
+
+<br><br>
+
+## Program 13
+Program [`p13`](./Zadania/p13/p13.f95) demonstruje tworzenie i manipulowanie tablicami logicznymi, liczbami zespolonymi oraz tablicami znaków. Program zawiera dwie pętle `DO` do inicjalizacji i wyświetlania tablic.
+
+### Szczegóły działania
+1. **Deklaracje zmiennych**:
+    - `INTEGER, PARAMETER :: st = 8`: Stała określająca szerokość tablicy `z` i `c`.
+    - `INTEGER :: r, s`: Zmienne iteracyjne używane w pętlach `DO`.
+    - `LOGICAL, DIMENSION(10,10) :: k1, k2`: Tablice logiczne o rozmiarze 10x10.
+    - `LOGICAL, DIMENSION(11:20,11:20) :: m`: Tablica logiczna o rozmiarze 10x10, przesunięta o jeden indeks w górę i w prawo.
+    - `COMPLEX, DIMENSION(1:10, 2+st) :: z, c`: Tablice liczb zespolonych o różnych wymiarach.
+    - `CHARACTER(len=10), DIMENSION(1:3) :: napisy`: Tablica zawierająca trzy napisy o długości 10 znaków.
+
+2. **Inicjalizacja tablic**:
+    - Pierwsza pętla `DO` inicjalizuje tablicę `k1` tak, aby na głównej przekątnej były wartości `.TRUE.`, a poza nią `.FALSE.`.
+    - Tablica `k2` jest inicjalizowana na podstawie tablicy `k1`.
+    - Tablica `m` jest inicjalizowana na podstawie tablicy `k2`.
+
+3. **Wyświetlanie tablic**:
+    - Pierwsze wyświetlenie tablicy `m` za pomocą jednego polecenia `PRINT *` wyświetla jej zawartość.
+    - Druga pętla `DO` iteruje po wierszach tablicy `m`, wyświetlając ich zawartość w kolejnych kolumnach.
+
+4. **Zakończenie programu**:
+    - `STOP`: Zatrzymuje wykonanie programu.
+
+<br><br>
