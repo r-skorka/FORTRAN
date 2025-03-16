@@ -231,11 +231,21 @@ Program [`p10`](./Zadania/p10/p10.f95) demonstruje użycie pętli `DO` z różny
     - `PRINT *, q`: Wyświetlenie wartości `q` w jedynej iteracji.
 
 6. **Piąta pętla `DO`**:
+    - `PRINT *, "start=6, stop=5, increment=4"`: Wyświetlenie informacji o zakresie pętli.
+    - `DO r = 6, 5, 4`: Iteracja zmiennej `r` od 6 do 5 z przyrostem 4 (ani razu się nie wykona).
+    - `PRINT *, r`: Wyświetlenie wartości `r`.
+
+7. **Szósta pętla `DO`**:
+    - `PRINT *, "start=25, stop=0, increment=-5"`: Wyświetlenie informacji o zakresie pętli.
+    - `DO x = 25, 0, -5`: Iteracja zmiennej `x` od 25 do 0 z przyrostem -5.
+    - `PRINT *, x`: Wyświetlenie wartości `x`.
+
+8. **Siódma pętla `DO`**:
     - `PRINT *, "start=20, stop=-20, increment=-6"`: Wyświetlenie informacji o zakresie pętli.
     - `DO m = 20, -20, -6`: Iteracja zmiennej `m` od 20 do -20 z przyrostem -6.
     - `PRINT *, m`: Wyświetlenie wartości `m` w każdej iteracji.
 
-7. **Zakończenie programu**:
+9. **Zakończenie programu**:
     - `STOP`: Zatrzymanie wykonania programu.
     - `END PROGRAM p10`: Oznaczenie końca programu.
 
