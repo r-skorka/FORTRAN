@@ -336,3 +336,184 @@ Program [`p13`](./Zadania/p13/p13.f95) demonstruje tworzenie i manipulowanie tab
     - `STOP`: Zatrzymuje wykonanie programu.
 
 <br><br>
+
+## Program 15
+Program [`p15`](./Zadania/p15/p15.f95) tworzy trzy trójwymiarowe tablice rzeczywiste o różnych wymiarach i przypisuje im stałe wartości. Następnie oblicza sumę dwóch z tych tablic i wyświetla wynik.
+
+### Szczegóły działania
+1. **Deklaracje zmiennych**:
+    - `real, dimension(2:10, -30:30, 0:10) :: t, y, tplusy`: Deklaracja trzech trójwymiarowych tablic rzeczywistych `t`, `y` i `tplusy`. Tablice te mają różne zakresy indeksów: `t` ma zakres od 2 do 10 w pierwszym wymiarze, od -30 do 30 w drugim wymiarze oraz od 0 do 10 w trzecim wymiarze.
+
+2. **Inicjalizacja tablic**:
+    - `t = 2.0`: Przypisanie wartości 2.0 do wszystkich elementów tablicy `t`.
+    - `y = 3.0`: Przypisanie wartości 3.0 do wszystkich elementów tablicy `y`.
+
+3. **Obliczenie sumy tablic**:
+    - `tplusy = t + y`: Obliczenie sumy tablic `t` i `y` element po elemencie i przypisanie wyniku do tablicy `tplusy`.
+
+4. **Wyświetlenie wyniku**:
+    - `print *, tplusy`: Wyświetlenie tablicy `tplusy`, która zawiera sumę wartości elementów tablic `t` i `y`.
+
+5. **Zakończenie programu**:
+    - `stop`: Zatrzymanie wykonania programu.
+
+<br><br>
+
+## Program 16
+Program [`p16`](./Zadania/p16/p16.f95) jest niewielkim programem w języku Fortran, który demonstruje operacje na tablicach oraz obliczenia na liczbach zespolonych. Program inicjalizuje dwie trójwymiarowe tablice rzeczywiste oraz jedną tablicę liczb zespolonych, wykonuje na nich operacje matematyczne i wyświetla wyniki.
+
+### Szczegóły działania
+1. **Deklaracje zmiennych**:
+    - `integer, parameter :: st = 8`: Stała określająca szerokość tablicy `z` i `c`.
+    - `integer :: wiersz, kolumna, r`: Zmienne iteracyjne używane w pętlach.
+    - `real, dimension(2:10, -30:30, 0:10) :: t, y, trazyy`: Trzy trójwymiarowe tablice rzeczywiste o różnych wymiarach.
+    - `complex, dimension(1:10, 2 + st) :: z, c`: Tablice liczb zespolonych o różnych wymiarach.
+
+2. **Inicjalizacja tablic**:
+    - `t = 2.0`: Przypisanie wartości `2.0` do wszystkich elementów tablicy `t`.
+    - `y = 3.0`: Przypisanie wartości `3.0` do wszystkich elementów tablicy `y`.
+    - `trazyy = t * y`: Obliczenie iloczynu elementów tablic `t` i `y` oraz przypisanie wyniku do tablicy `trazyy`.
+
+3. **Operacje na tablicach zespolonych**:
+    - `z = (1.0, 0.0)`: Przypisanie liczby zespolonej `(1.0, 0.0)` do wszystkich elementów tablicy `z`.
+    - Pętla `DO` zmienia wartości elementów tablicy z w zależności od iteracji.
+    - `c = (2.0, 0.0) * z + (1.0, 0.0)`: Obliczenie wyrażenia zespolonego `(2.0, 0.0) * z + (1.0, 0.0)` i przypisanie wyniku do tablicy `c`.
+
+4. **Wyświetlanie wyników**:
+    - `print *, trazyy`: Wyświetlenie tablicy trazyy, która zawiera wynik mnożenia tablic `t` i `y`.
+    - `print *, c(1:3, 8:10)`: Wyświetlenie fragmentu tablicy `c` o wymiarach 3x3.
+    - Pętla `DO` wyświetla elementy tablicy `c` w wybranych wierszach i kolumnach.
+
+5. **Zakończenie programu**:
+    - `stop`: Zatrzymanie wykonania programu.
+
+<br><br>
+
+## Program 17
+Program [`p17`](./Zadania/p17/p17.f95) demonstruje definicję i użycie funkcji w programie. Program definiuje dwie funkcje `f1` i `f2` do obliczeń matematycznych, a następnie wywołuje te funkcje z różnymi argumentami, aby pokazać wyniki.
+
+### Szczegóły działania
+
+1. **Deklaracje zmiennych**:
+    - `real a, b, c, x, y, z, f1`: Deklaracja zmiennych rzeczywistych oraz funkcji `f1`.
+    - `data c / 5./`: Inicjalizacja zmiennej `c` wartością 5.0.
+
+2. **Definicja funkcji `f1`**:
+    - `f1(x, y) = a + b * x**2 + c * y`: Definicja funkcji `f1` bezpośrednio w programie. Funkcja ta przyjmuje dwa argumenty `x` i `y`, i zwraca wartość obliczoną według wzoru `a + b * x**2 + c * y`.
+
+3. **Przypisanie wartości zmiennym**:
+    - `a = 1`: Przypisanie wartości 1 do zmiennej `a`.
+    - `b = 2`: Przypisanie wartości 2 do zmiennej `b`.
+
+4. **Wywołanie funkcji `f1` i wyświetlenie wyników**:
+    - `z = f1(2., 2.)`: Wywołanie funkcji `f1` z argumentami 2.0 i 2.0, przypisanie wyniku do `z` i wyświetlenie wyniku.
+    - `z = f1(b, b)`: Wywołanie funkcji `f1` z argumentami `b` i `b`, przypisanie wyniku do `z` i wyświetlenie wyniku.
+
+5. **Definicja funkcji wewnętrznej `f2`**:
+    - `function f2(x, y)`: Definicja funkcji `f2` wewnątrz programu, która przyjmuje dwa argumenty `x` i `y`, i zwraca wartość obliczoną według wzoru `a + b * x**2 + c * y`.
+
+6. **Wywołanie funkcji `f2` i wyświetlenie wyników**:
+    - `z = f2(2., 2.)`: Wywołanie funkcji `f2` z argumentami 2.0 i 2.0, przypisanie wyniku do `z` i wyświetlenie wyniku.
+    - `z = f2(b, b)`: Wywołanie funkcji `f2` z argumentami `b` i `b`, przypisanie wyniku do `z` i wyświetlenie wyniku.
+
+<br><br>
+
+## Program 18
+Program [`p18`](./Zadania/p18/p18.f95) demonstruje użycie formatów do odczytu i wyświetlania danych. Program odczytuje wartości z wejścia użytkownika, przetwarza je, a następnie wyświetla wyniki w sformatowany sposób.
+
+### Szczegóły działania
+
+1. **Deklaracje zmiennych**:
+    - `integer :: a, b`: Deklaracja zmiennych całkowitych `a` i `b`.
+    - `real :: c, d`: Deklaracja zmiennych rzeczywistych `c` i `d`.
+
+2. **Odczyt danych**:
+    - `print *, 'Type 123456789'`: Wyświetlenie komunikatu z prośbą o wpisanie wartości.
+    - `read 101, a, b, c, d`: Odczytanie wartości wpisanych przez użytkownika do zmiennych `a`, `b`, `c` i `d` zgodnie z formatem `101`.
+
+3. **Wyświetlanie wyników**:
+    - `print 200, a, b, a-b, c, d, c-d`: Wyświetlenie wyników obliczeń w sformatowany sposób zgodnie z formatem `200`.
+
+4. **Formaty**:
+    - `101 format(T6, I4, TL6, I4, TL6, F4.1, TL6, F4.2)`: Format do odczytu danych. 
+        - `T6`: Przesunięcie o 6 znaków w prawo.
+        - `I4`: Liczba całkowita o szerokości 4 znaków.
+        - `TL6`: Przesunięcie o 6 znaków w lewo.
+        - `F4.1`: Liczba rzeczywista o szerokości 4 znaków z 1 miejscem po przecinku.
+        - `F4.2`: Liczba rzeczywista o szerokości 4 znaków z 2 miejscami po przecinku.
+    - `200 format(5X, I4, " minus ", I5, " is ", I5, TR4, F6.2, " minus", F6.2, " is ", F8.3)`: Format do wyświetlania wyników.
+        - `5X`: Przesunięcie o 5 znaków w prawo.
+        - `I4`, `I5`: Liczby całkowite o szerokości odpowiednio 4 i 5 znaków.
+        - `TR4`: Przesunięcie w prawo o 4 znaki.
+        - `F6.2`: Liczba rzeczywista o szerokości 6 znaków z 2 miejscami po przecinku.
+        - `F8.3`: Liczba rzeczywista o szerokości 8 znaków z 3 miejscami po przecinku.
+
+<br><br>
+
+## Program 20
+Program [`p20`](./Zadania/p20/p20.f95) demonstruje użycie tablic z niestandardowym zakresem indeksów. Program tworzy i inicjalizuje tablicę `mm` o zakresie indeksów od -1 do 4, a następnie wyświetla jej zawartość.
+
+### Szczegóły działania
+
+1. **Deklaracja tablicy**:
+    - `integer, dimension (-1:4) :: mm`: Deklaracja tablicy `mm` typu całkowitego z zakresem indeksów od -1 do 4.
+
+2. **Inicjalizacja tablicy**:
+    - `mm = (/12, 14, 16, 18, 20, 22/)`: Inicjalizacja tablicy `mm` wartościami 12, 14, 16, 18, 20 i 22. Wartości te zostaną przypisane do indeksów od -1 do 4 odpowiednio.
+
+3. **Wyświetlanie zawartości tablicy**:
+    - `print *, mm`: Wyświetlenie zawartości tablicy `mm` na standardowym wyjściu.
+
+<br><br>
+
+## Program 21
+Program [`p21`](./Zadania/p21/p21.f95) demonstruje tworzenie i inicjalizację macierzy przy użyciu funkcji `reshape`. Program tworzy wektor, a następnie przekształca go w macierz o zadanych wymiarach.
+
+### Szczegóły działania
+
+1. **Deklaracja tablic**:
+    - `integer, dimension (5, 3) :: macierz`: Deklaracja dwuwymiarowej tablicy `macierz` o wymiarach 5x3.
+    - `integer, dimension (15) :: wektor`: Deklaracja jednowymiarowej tablicy `wektor` o długości 15.
+
+2. **Inicjalizacja wektora**:
+    - `wektor = (/0,1,2,3,4,5,6,7,8,9,10,11,12,13,14/)`: Inicjalizacja wektora wartościami od 0 do 14.
+
+3. **Przekształcenie wektora w macierz**:
+    - `macierz = reshape(wektor, (/5, 3/))`: Przekształcenie wektora w macierz o wymiarach 5x3 za pomocą funkcji `reshape`.
+
+4. **Wyświetlanie zawartości macierzy**:
+    - `print *, macierz`: Wyświetlenie zawartości macierzy `macierz` na standardowym wyjściu.
+
+<br><br>
+
+## Program 22
+Program [`p22`](./Zadania/p22/p22.f95) demonstruje tworzenie i manipulację macierzy przy użyciu funkcji `reshape` oraz wyświetlanie jej fragmentów. Program przekształca wektor w macierz o zadanych wymiarach, wyświetla zawartość macierzy, a następnie prezentuje wybrane fragmenty macierzy.
+
+### Szczegóły działania
+
+1. **Deklaracja tablic**:
+    - `integer, dimension (5, 3) :: macierz`: Deklaracja dwuwymiarowej tablicy `macierz` o wymiarach 5x3.
+    - `integer, dimension (15) :: wektor`: Deklaracja jednowymiarowej tablicy `wektor` o długości 15.
+    - `integer, dimension (2) :: zakres`: Deklaracja jednowymiarowej tablicy `zakres` o długości 2.
+
+2. **Inicjalizacja wektora**:
+    - `wektor = (/0,1,2,3,4,5,6,7,8,9,10,11,12,13,14/)`: Inicjalizacja wektora wartościami od 0 do 14.
+
+3. **Przekształcenie wektora w macierz**:
+    - `macierz = reshape(wektor, (/5,3/))`: Przekształcenie wektora w macierz o wymiarach 5x3 za pomocą funkcji `reshape`.
+
+4. **Wyświetlanie zawartości macierzy**:
+    - `print *, macierz`: Wyświetlenie zawartości macierzy `macierz` na standardowym wyjściu.
+
+5. **Przekształcenie wektora w macierz z użyciem zakresu**:
+    - `zakres = (/5,3/)`: Ustawienie zakresu wymiarów macierzy.
+    - `macierz = reshape(wektor, zakres)`: Ponowne przekształcenie wektora w macierz z użyciem zakresu.
+
+6. **Wyświetlanie fragmentu macierzy**:
+    - `print *, macierz (:4, :2)`: Wyświetlenie fragmentu macierzy, składającego się z pierwszych 4 wierszy i 2 kolumn.
+
+7. **Wyświetlanie zawartości macierzy w pętli**:
+    - `do wiersz = 1, 3`: Pętla iterująca po wierszach.
+        - `print *, (macierz(kolumna, wiersz), kolumna = 1, 5, 1)`: Wyświetlenie zawartości kolumn w aktualnym wierszu.
+
+<br><br>
