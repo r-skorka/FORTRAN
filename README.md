@@ -643,3 +643,59 @@ Program [`p26`](./Zadania/p26/p26.f95) demonstruje różne operacje na macierzac
     - Wyświetlenie wektorów `vector_E`, `vector_C`, `vector_D` oraz iloczynu skalarnego.
 
 <br><br>
+
+## Program 39
+Program [`p39`](./Zadania/p39/p39.f95) odczytuje macierz z pliku tekstowego, a następnie oblicza sumy wierszy, sumy kolumn oraz sumę wszystkich elementów tej macierzy. Wykorzystuje do tego procedurę `Summit` z modułu `zawiera_procedure_Summit`.
+
+### Szczegóły działania
+
+1. **Moduł `zawiera_procedure_Summit`**:
+    - Zawiera procedurę `Summit`, która przyjmuje dwuwymiarową macierz jako argument wejściowy.
+    - Oblicza sumy elementów w poszczególnych wierszach oraz kolumnach macierzy.
+    - Oblicza sumę wszystkich elementów macierzy.
+
+2. **Program główny** (`p39`):
+    - Korzysta z modułu `zawiera_procedure_Summit`.
+    - Otwiera plik tekstowy `x.txt`, z którego odczytuje rozmiar macierzy oraz jej zawartość.
+    - Alokuje pamięć na potrzeby przechowywania macierzy.
+    - Wywołuje procedurę `Summit` dla wczytanej macierzy i wyświetla wyniki sumowania na standardowym wyjściu.
+
+<br><br>
+
+## Program 40
+Program [`p40`](./Zadania/p40/p40.f95) pobiera temperaturę w stopniach Fahrenheit (°F) od użytkownika, a następnie dokonuje konwersji tej temperatury na stopnie Celsjusza (°C). Wykorzystuje do tego własne procedury i funkcje zdefiniowane w module `moje_procedury_i_funkcje`.
+
+### Szczegóły działania
+
+1. **Moduł `moje_procedury_i_funkcje`**:
+    - Zawiera trzy podprogramy: `input`, `temp_c` (funkcja) i `output`.
+    - `input`: Pobiera temperaturę w stopniach Fahrenheit od użytkownika.
+    - `temp_c`: Przyjmuje temperaturę w stopniach Fahrenheit jako argument wejściowy i zwraca ją w stopniach Celsjusza.
+    - `output`: Przyjmuje temperaturę w stopniach Fahrenheit i jej odpowiednik w stopniach Celsjusza jako argumenty wejściowe i wyświetla obie temperatury na standardowym wyjściu w różnych formatach.
+
+2. **Program główny** (`p40`):
+    - Korzysta z modułu `moje_procedury_i_funkcje`.
+    - Pobiera temperaturę w stopniach Fahrenheit od użytkownika za pomocą podprogramu `input`.
+    - Wywołuje funkcję `temp_c` w celu przeliczenia temperatury na stopnie Celsjusza.
+    - Wyświetla obie temperatury (w stopniach Fahrenheit i Celsjusza) za pomocą podprogramu `output`.
+
+<br><br>
+
+## Program 41
+Program [`p41`](./Zadania/p41/p41.f95) korzysta z modułu `funkcja_korzysta_z_procedury`, który zawiera funkcję `module_function` oraz procedurę `module_subroutine`. Moduł ten definiuje również typ `new` oraz zmienną `x` typu `new`, która jest zainicjowana wartościami 1234 i 5678. Program wykorzystuje funkcję `module_function`, która z kolei korzysta z procedury `module_subroutine`, aby przekształcić wartości w zmiennej typu `new`.
+
+### Szczegóły działania
+
+1. **Moduł `funkcja_korzysta_z_procedury`**:
+    - Zawiera typ `new`, zdefiniowany jako struktura z dwoma polami `j` i `k`.
+    - Zawiera zmienną `x`, będącą instancją typu `new` zainicjowaną wartościami 1234 i 5678.
+    - Definiuje funkcję `module_function`, która korzysta z procedury `module_subroutine` do modyfikacji wartości pola `j` i `k` w zmiennej typu `new`.
+    - Zawiera procedurę `module_subroutine`, która zamienia wartości między dwoma zmiennymi typu `integer`.
+    
+2. **Program główny** (`p41`):
+    - Wykorzystuje moduł `funkcja_korzysta_z_procedury`.
+    - Wywołuje funkcję `module_function`, aby przekształcić wartości w zmiennej `exter`.
+    - Definiuje funkcję `internal_function`, która zwraca wartość stałą `value`.
+    - Wywołuje `internal_function`, aby przypisać wartość do zmiennej `inter`.
+
+<br><br>
